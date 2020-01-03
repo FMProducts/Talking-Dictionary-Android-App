@@ -1,21 +1,16 @@
 package com.fmproducts.rysgal.talkingdictionaryapp;
 
-import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Data {
-    private static final String FILE_NAME = "data.json";
 
     private static String getFileText(AssetManager manager) throws IOException {
         InputStream stream = manager.open("data.json");
