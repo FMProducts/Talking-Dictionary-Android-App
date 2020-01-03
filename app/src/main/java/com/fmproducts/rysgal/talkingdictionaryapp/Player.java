@@ -30,5 +30,4 @@ public class Player {
         player.setOnPreparedListener(MediaPlayer::start);
         player.prepareAsync();
     }
-
 }
