@@ -6,23 +6,19 @@
     },
     {
       "word" : "Klawiatura",
-      "file" : "mouse.mp3"
+      "file" : "klawiatura.mp3"
     },
     {
       "word" : "Processor",
-      "file" : "sycan.mp3"
+      "file" : "processor.mp3"
     },
     {
       "word" : "Monitor",
-      "file" : "mouse.mp3"
-    },
-    {
-      "word" : "Kabel",
-      "file" : "sycan.mp3"
+      "file" : "monitor.mp3"
     },
     {
       "word" : "Duwme",
-      "file" : "mouse.mp3"
+      "file" : "duwme.mp3"
     }
   ]
 }

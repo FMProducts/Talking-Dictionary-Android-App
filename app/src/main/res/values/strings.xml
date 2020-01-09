@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TalkingDictionaryApp</string>
+    <string name="app_name">Sozluk</string>
+    <string name="todo">TODO</string>
 </resources>
