@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,13 +21,19 @@ public class MainDictionaryAdapter extends RecyclerView.Adapter<MainDictionaryAd
     private static final String TAG = "MainDictionaryAdapter";
 
     private Player player;
-    private ArrayList<Word> data;
+    private ArrayList<WordItem> data;
     private LayoutInflater inflater;
+    private int language;
 
-    public MainDictionaryAdapter(Context context, ArrayList<Word> data) {
+    public MainDictionaryAdapter(Context context, ArrayList<WordItem> data) {
         this.player = Player.getInstance(context.getAssets());
         this.data = data;
         this.inflater = LayoutInflater.from(context);
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -38,13 +45,19 @@ public class MainDictionaryAdapter extends RecyclerView.Adapter<MainDictionaryAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Word word = data.get(position);
+        WordItem wordItem = data.get(position);
 
-        holder.word.setText(word.getName());
+        holder.word.setText(wordItem.getName(language));
+        holder.content.setOnLongClickListener(v -> {
+            new AlertDialog.Builder(v.getContext())
+                    .setMessage(wordItem.getWord().getTranscription())
+                    .show();
+            return true;
+        });
         holder.content.setOnClickListener(v->{
             try {
 //                player.pause();
-                player.play(word.getFile());
+                player.play(wordItem.getFile());
             } catch (IOException e) {
                 Toast.makeText(v.getContext(), "error", Toast.LENGTH_SHORT).show();
                 if (e.getMessage() != null) Log.e(TAG , e.getMessage());

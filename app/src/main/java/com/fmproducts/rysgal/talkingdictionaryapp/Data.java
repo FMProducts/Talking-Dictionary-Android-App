@@ -21,24 +21,24 @@ public class Data {
         return new String(buffer);
     }
 
-    public static ArrayList<Word> getData(AssetManager manager) throws IOException {
+    public static ArrayList<WordItem> getData(AssetManager manager) throws IOException {
         JsonModel model = new GsonBuilder().setLenient().excludeFieldsWithoutExposeAnnotation().create()
                 .fromJson(getFileText(manager) , JsonModel.class);
         if (model == null) return new ArrayList<>();
-        return model.getWords();
+        return model.getWordItems();
     }
 
     private class JsonModel{
         @SerializedName("words")
         @Expose
-        private ArrayList<Word> words;
+        private ArrayList<WordItem> wordItems;
 
-        public ArrayList<Word> getWords() {
-            return words;
+        public ArrayList<WordItem> getWordItems() {
+            return wordItems;
         }
 
-        public void setWords(ArrayList<Word> words) {
-            this.words = words;
+        public void setWordItems(ArrayList<WordItem> wordItems) {
+            this.wordItems = wordItems;
         }
     }
 }

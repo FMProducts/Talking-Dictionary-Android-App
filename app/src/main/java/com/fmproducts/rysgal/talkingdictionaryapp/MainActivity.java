@@ -1,24 +1,25 @@
 package com.fmproducts.rysgal.talkingdictionaryapp;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.AssetManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+//farizmamedow
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
+    private MainDictionaryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Sözlük");
         init();
     }
+
     private void init(){
         RecyclerView recyclerView = findViewById(R.id.recycler);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -34,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
 
         try {
-            ArrayList<Word> data = Data.getData(this.getAssets());
-            MainDictionaryAdapter adapter = new MainDictionaryAdapter(this , data);
+            ArrayList<WordItem> data = Data.getData(this.getAssets());
+            adapter = new MainDictionaryAdapter(this , data);
             recyclerView.setAdapter(adapter);
         } catch (IOException e) {
             Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
@@ -43,6 +45,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main , menu);
+        return true;
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_item){
+            new AlertDialog.Builder(this)
+                    .setCancelable(true)
+                    .setItems(R.array.languages , (dialog, which)->{
+                        if (adapter != null) adapter.setLanguage(which+1);
+                    }).show();
+            return true;
+        }
+        return false;
+    }
 }

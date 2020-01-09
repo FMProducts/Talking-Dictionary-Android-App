@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Sozluk</string>
     <string name="todo">TODO</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Russian</item>
+        <item>Turkmen</item>
+    </string-array>
 </resources>

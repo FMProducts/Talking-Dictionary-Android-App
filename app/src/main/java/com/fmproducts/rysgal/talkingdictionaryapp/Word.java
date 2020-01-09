@@ -4,26 +4,51 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Word {
-    @SerializedName("word")
+    @SerializedName("en")
     @Expose
-    private String name;
-    @SerializedName("file")
+    private String en;
+
+    @SerializedName("tk")
     @Expose
-    private String file;
+    private String tk;
 
-    public String getName() {
-        return name;
+    @SerializedName("ru")
+    @Expose
+    private String ru;
+
+    @SerializedName("transcription")
+    @Expose
+    private String transcription;
+
+    public String getTranscription() {
+        return transcription;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTranscription(String transcription) {
+        this.transcription = transcription;
     }
 
-    public String getFile() {
-        return file;
+    public String getEn() {
+        return en;
     }
 
-    public void setFile(String file) {
-        this.file = file;
+    public void setEn(String en) {
+        this.en = en;
+    }
+
+    public String getTk() {
+        return tk;
+    }
+
+    public void setTk(String tk) {
+        this.tk = tk;
+    }
+
+    public String getRu() {
+        return ru;
+    }
+
+    public void setRu(String ru) {
+        this.ru = ru;
     }
 }

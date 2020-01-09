@@ -1,23 +1,48 @@
 {
   "words": [
     {
-      "word" : "Sycan",
+      "word" : {
+        "en" : "Mouse",
+        "tk" : "Syçan",
+        "ru" : "Мышка",
+        "transcription" : "maʊs"
+      },
       "file" : "sycan.mp3"
     },
     {
-      "word" : "Klawiatura",
+      "word" : {
+        "en" : "Keyboard",
+        "tk" : "Klawiatura",
+        "ru" : "Клавиатура",
+        "transcription" : "kiːbɔːrd"
+      },
       "file" : "klawiatura.mp3"
     },
     {
-      "word" : "Processor",
+      "word" : {
+        "en" : "Processor",
+        "tk" : "Prosessor",
+        "ru" : "Процессор",
+        "transcription" : "ˈprɑːsesər"
+      },
       "file" : "processor.mp3"
     },
     {
-      "word" : "Monitor",
+      "word" : {
+        "en" : "Monitor",
+        "tk" : "Monitor",
+        "ru" : "Монитор",
+        "transcription" : "mɑːnɪtər"
+      },
       "file" : "monitor.mp3"
     },
     {
-      "word" : "Duwme",
+      "word" : {
+        "en" : "Button",
+        "tk" : "Düwme",
+        "ru" : "Кнопка",
+        "transcription" : "bʌtn"
+      },
       "file" : "duwme.mp3"
     }
   ]
